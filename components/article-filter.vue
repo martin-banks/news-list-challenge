@@ -1,7 +1,6 @@
 <template>
   <!-- Filter -->
   <div class="filter__container">
-    <!-- title -->
     <h4 class="filter__title">Filter</h4>
     <!-- filter options list -->
     <ul class="filter__categoryWrapper">
@@ -64,16 +63,9 @@ export default {
 
   methods: {
     handleClick (category) {
-      // this.active[category] = !this.active[category]
-      // this.$emit('updateFilter', this.active)
       this.$emit('updateFilter', category)
     },
     handleReset () {
-      // this.active = this.categories.reduce((output, category) => {
-      //   const update = output
-      //   update[category] = false
-      //   return update
-      // }, {})
       this.$emit('resetFilters', true)
     }
   },

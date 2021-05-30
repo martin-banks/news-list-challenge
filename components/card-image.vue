@@ -9,7 +9,7 @@
       }"
       :data-angle="article.index % 2"
     >
-      <img class="thumbnail" :src="article.ThumbnailImage" />
+      <img class="thumbnail" :src="article.ThumbnailImage" :alt="`Thumbnail image for article: ${article.ArticleTitle}`" />
     </div>
   </div>
 
