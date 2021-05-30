@@ -30,9 +30,9 @@ export default {
         'hero',
         'small',
         'small',
-        'double',
+        'double'
       ],
-      filters: {}
+      filters: {},
     }
   },
 
@@ -51,21 +51,24 @@ export default {
       categories.push(...article.Tags)
     }
 
-    const routeQueries = this.$route.query?.topics?.split('+')
-
-    routeQueries?.forEach((topic) => {
-      this.filters[topic] = true
-    })
-
     this.categories = [...new Set(categories)]
     this.filters = this.categories
       .reduce((output, category) => {
         const update = output
-        update[category] = routeQueries?.includes(category) || false
+        if (!update[category]) {
+          update[category] = false
+        }
         return update
       }, {})
     this.articles = articlesWithType
     this.articlesToRender = articlesWithType
+  },
+
+  mounted () {
+    const routeQueries = this.$route.query?.topics?.split('+')
+    routeQueries?.forEach((topic) => {
+      this.filters[topic] = true
+    })
   },
 
   methods: {
@@ -101,7 +104,7 @@ export default {
 
       this.$router.push({
         path: this.$route.path,
-        query: { topics: activeFilters.join('+') }
+        query: { topics: activeFilters.join('+') },
       })
     },
 
@@ -119,7 +122,6 @@ export default {
       this.$router.push({ path: this.$route.path })
     },
   },
-
 }
 </script>
 
