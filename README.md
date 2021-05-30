@@ -1,5 +1,17 @@
 # switch-coding-challenge
 
+## Private keys
+The Api used needs a key not included here.
+
+Create a new `.env` with the key:
+
+```
+API_KEY=<your-key-here>
+
+```
+
+
+
 ## Build Setup
 
 ```bash
